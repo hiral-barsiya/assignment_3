@@ -1,0 +1,20 @@
+2. What is OOP? List OOP concepts
+
+
+OOP:
+-->OOP is a programming model in C++ that organizes programs around objects, rather than functions and logic.
+
+All OOP Concepts:
+-Encapsulation
+-Abstraction
+-Inheritance
+-Polymorphism
+-Composition
+-class and objects
+-constructor and destructor
+-Method overloading and overriding
+-Virtual functions
+-Friend function and class
+-Static members
+-Namespace
+

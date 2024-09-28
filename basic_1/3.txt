@@ -1,0 +1,24 @@
+3. What is the difference between OOP and POP?
+
+Object-Oriented Programming and Procedural-Oriented Programming  are two fundamental programming paradigms. Here's a difference:
+
+
+Procedural-Oriented Programming (POP):
+
+
+1. Focuses on procedures or functions that perform specific tasks.
+2. Data and functions are separate entities.
+3. Data is shared among procedures through parameters or global variables.
+4. Emphasizes step-by-step processing.
+5. No encapsulation or data hiding.
+6. Functions can modify data directly.
+
+
+Object-Oriented Programming (OOP):
+
+
+1. Focuses on objects that contain data and associated methods.
+2. Data and methods are bundled together.
+3. Data is hidden and accessed through methods.
+4. Emphasizes modularity, reusability, and scalability.
+5. Supports inheritance, polymorphism, and composition.
