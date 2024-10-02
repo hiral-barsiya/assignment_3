@@ -2,55 +2,71 @@
 
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 class BankAccount {
 private:
-    string depositorName;
+    string name;
     int accountNumber;
-    string accountType;
     double balance;
 
 public:
-
-    void assignValues(string name, int accNum, string accType, double initialBalance) {
-        depositorName = name;
+    // Constructor
+    BankAccount(string n, int accNum, double bal) {
+        name = n;
         accountNumber = accNum;
-        accountType = accType;
-        balance = initialBalance;
+        balance = bal;
     }
 
+    // Deposit money
     void deposit(double amount) {
         balance += amount;
-        cout << "Amount deposited successfully. New balance: " << balance << endl;
+        cout << "Deposited: " << amount << endl;
     }
 
+    // Withdraw money
     void withdraw(double amount) {
-        if (amount > balance) {
-            cout << "Insufficient balance. Withdrawal failed." << endl;
-        } else {
+        if (balance >= amount) {
             balance -= amount;
-            cout << "Amount withdrawn successfully. New balance: " << balance << endl;
+            cout << "Withdrawn: " << amount << endl;
+        } else {
+            cout << "Insufficient balance." << endl;
         }
     }
 
+    // Display account information
     void display() {
-        cout << "Depositor Name: " << depositorName << endl;
+        cout << "Name: " << name << endl;
         cout << "Account Number: " << accountNumber << endl;
-        cout << "Account Type: " << accountType << endl;
         cout << "Balance: " << balance << endl;
     }
 };
 
 int main() {
-    BankAccount account;
+    string n;
+    int accNum;
+    double bal;
+    double depositAmount, withdrawAmount;
 
-    account.assignValues("John Doe", 123456, "Savings", 1000.00);
-    account.display();
-    account.deposit(500);
-    account.withdraw(300);
-    account.withdraw(1500);
+
+    cout << "Enter name: ";
+    cin>> n;
+    cout << "Enter account number: ";
+    cin >> accNum;
+    cout << "Enter  balance: ";
+    cin >> bal;
+
+    BankAccount account(n, accNum, bal);
+
+    cout << "\nEnter amount to deposit: ";
+    cin >> depositAmount;
+    account.deposit(depositAmount);
+
+    cout << "\nEnter amount to withdraw: ";
+    cin >> withdrawAmount;
+    account.withdraw(withdrawAmount);
+
+    cout << "\nUpdated Account Information:" << endl;
     account.display();
 
     return 0;

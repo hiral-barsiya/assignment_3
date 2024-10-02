@@ -4,53 +4,54 @@ calculate the rectangle's area and perimeter.*/
 
 
 #include <iostream>
-
 using namespace std;
 
 class Rectangle {
-    private:
-        double length;
-        double width;
+private:
+    double length;
+    double width;
 
-    public:
-        // Constructor
-        Rectangle(double l = 0.0, double w = 0.0) {
-            length = l;
-            width = w;
-        }
+public:
+    // Constructor
+    Rectangle(double l = 0.0, double w = 0.0) {
+        length = l;
+        width = w;
+    }
 
-        // Calculate area
-        double calculateArea() {
-            return length * width;
-        }
+    // Calculate area
+    double calculateArea() {
+        return length * width;
+    }
 
-        // Calculate perimeter
-        double calculatePerimeter() {
-            return 2 * (length + width);
-        }
+    // Calculate perimeter
+    double calculatePerimeter() {
+        return 2 * (length + width);
+    }
 
-        // Display rectangle information
-        void displayInfo() {
-            cout << "Rectangle Dimensions:-" << endl;
-            cout << "Length: " << length << endl;
-            cout << "Width: " << width << endl;
-            cout << "Area: " << calculateArea() << endl;
-            cout << "Perimeter: " << calculatePerimeter() << endl;
-        }
-
-        // Parameterized constructor to initialize dimensions
-        void initDimensions(double l, double w) {
-            length = l;
-            width = w;
-        }
+    // Display information
+    void displayInfo() {
+        cout << "Rectangle Dimensions:-" << endl;
+        cout << "Length: " << length << endl;
+        cout << "Width: " << width << endl;
+        cout << "Area: " << calculateArea() << endl;
+        cout << "Perimeter: " << calculatePerimeter() << endl;
+    }
 };
 
 int main() {
-    Rectangle rect;
-    rect.initDimensions(5.0, 3.0);
+    double length, width;
+
+    cout << "Enter rectangle length: ";
+    cin >> length;
+    cout << "Enter rectangle width: ";
+    cin >> width;
+
+    // Create Rectangle object
+    Rectangle rect(length, width);
+
+    // Display rectangle information
     rect.displayInfo();
-    
+
     return 0;
 }
-
 

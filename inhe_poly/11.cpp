@@ -7,40 +7,39 @@ Circle: Pi * Area *Area*/
 #include <iostream>
 using namespace std;
 
-const double PI = 3.14159;
+// Function to calculate the area of a circle
+double area(double radius) {
+     double PI = 3.14159;
+    return PI * radius * radius;
+}
 
-class Shape {
-    public:
-        // Function overloading for circle area
-        double area(double radius) {
-            return PI * radius * radius;
-        }
+// Function to calculate the area of a rectangle
+double area(double length, double breadth) {
+    return length * breadth;
+}
 
-        // Function overloading for rectangle area
-        double area(double length, double breadth) {
-            return length * breadth;
-        }
-
-        // Function overloading for triangle area
-        double area(double base, double height) {
-            return 0.5 * base * height;
-        }
-};
+// Function to calculate the area of a triangle
+double area(double base, double height, bool isTriangle) {
+    return 0.5 * base * height;
+}
 
 int main() {
-    Shape shape;
+    double radius, length, breadth, base, height;
 
-    // Calculate circle area
-    double radius = 5.0;
-    cout << "Circle Area: " << shape.area(radius) << endl;
+    // Calculate area of circle
+    cout << "Enter the radius of the circle: ";
+    cin >> radius;
+    cout << "Area of the circle: " << area(radius) << endl;
 
-    // Calculate rectangle area
-    double length = 4.0, breadth = 6.0;
-    cout << "Rectangle Area: " << shape.area(length, breadth) << endl;
+    // Calculate area of rectangle
+    cout << "Enter the length and breadth of the rectangle: ";
+    cin >> length >> breadth;
+    cout << "Area of the rectangle: " << area(length, breadth) << endl;
 
-    // Calculate triangle area
-    double base = 3.0, height = 7.0;
-    cout << "Triangle Area: " << shape.area(base, height) << endl;
+    // Calculate area of triangle
+    cout << "Enter the base and height of the triangle: ";
+    cin >> base >> height;
+    cout << "Area of the triangle: " << area(base, height, true) << endl;
 
     return 0;
 }

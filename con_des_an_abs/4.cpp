@@ -2,10 +2,7 @@
 private member variables for account number and balance. Include 
 member functions to deposit and withdraw money from the account. */
 
-
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 class BankAccount {
@@ -14,26 +11,29 @@ private:
     double balance;
 
 public:
-
-    void assignValues( int accNum, double initialBalance) {
+    // Constructor
+    BankAccount(int accNum, double bal) {
         accountNumber = accNum;
-        balance = initialBalance;
+        balance = bal;
     }
 
+    // Deposit money
     void deposit(double amount) {
         balance += amount;
-        cout << "Amount deposited successfully. New balance: " << balance << endl;
+        cout << "Deposited: " << amount << endl;
     }
 
+    // Withdraw money
     void withdraw(double amount) {
-        if (amount > balance) {
-            cout << "Insufficient balance. Withdrawal failed." << endl;
-        } else {
+        if (balance >= amount) {
             balance -= amount;
-            cout << "Amount withdrawn successfully. New balance: " << balance << endl;
+            cout << "Withdrawn: " << amount << endl;
+        } else {
+            cout << "Insufficient balance." << endl;
         }
     }
 
+    // Display account information
     void display() {
         cout << "Account Number: " << accountNumber << endl;
         cout << "Balance: " << balance << endl;
@@ -41,13 +41,26 @@ public:
 };
 
 int main() {
-    BankAccount account;
+    int accNum;
+    double bal;
+    double depositAmount, withdrawAmount;
 
-    account.assignValues( 123456,  1000.00);
-    account.display();
-    account.deposit(500);
-    account.withdraw(300);
-    account.withdraw(1500);
+    cout << "Enter account number: ";
+    cin >> accNum;
+    cout << "Enter balance: ";
+    cin >> bal;
+
+    BankAccount account(accNum, bal);
+
+    cout << "\nEnter amount to deposit: ";
+    cin >> depositAmount;
+    account.deposit(depositAmount);
+
+    cout << "\nEnter amount to withdraw: ";
+    cin >> withdrawAmount;
+    account.withdraw(withdrawAmount);
+
+    cout << "\nUpdated Account Information:" << endl;
     account.display();
 
     return 0;

@@ -3,42 +3,42 @@
 #include <iostream>
 using namespace std;
 
-// Template function to sort an array
 template <typename T>
-void sortArray(T arr[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = i + 1; j < size; j++) {
-            if (arr[i] > arr[j]) {
-                // Swap the elements
-                T temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+void sort(T arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[i]) {
+                T temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
             }
         }
     }
 }
 
-// Function to print the array
 template <typename T>
-void printArray(T arr[], int size) {
-    for (int i = 0; i < size; i++) {
+void printArray(T arr[], int n) {
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) 
+    {
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
 int main() {
-    int arr[] = {5, 2, 9, 1, 5, 6};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    cout<< "enter number of element:";
+    cin >> n;
 
-    cout << "Array before sorting: ";
-    printArray(arr, size);
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
-    // Sorting the array
-    sortArray(arr, size);
-
-    cout << "Array after sorting: ";
-    printArray(arr, size);
+    sort(arr, n);
+    printArray(arr, n);
 
     return 0;
 }
+
